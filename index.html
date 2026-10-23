@@ -18,7 +18,7 @@
     .collections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
     .collection { display:block; min-width:0; }
     .cover { position:relative; overflow:hidden; aspect-ratio:1.65/1; background:#191a1e; border:1px solid var(--border); border-radius:4px; }
-    .cover img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+    .cover img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }\n    .bcs-cover { background:radial-gradient(ellipse at center,#342d20,#121212 75%); }\n    .bcs-cover img { object-fit:contain; padding:35px; }
     .cover:after { content:""; position:absolute; inset:35% 0 0; background:linear-gradient(0deg,rgba(0,0,0,.55),transparent); pointer-events:none; }
     .collection:hover .cover img { transform:scale(1.04); }
     .number { color:#888991; font-size:11px; letter-spacing:1px; margin-top:20px; }
@@ -49,7 +49,7 @@
         <span class="arrow">Explore this collection ↗</span>
       </a>
       <a class="collection" href="six.html">
-        <div class="cover"><img src="six-cover.svg" alt="Original gold-toned Better Call Saul-inspired collection artwork"></div>
+        <div class="cover bcs-cover"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Better_Call_Saul_-_Logo_2.svg" alt="Better Call Saul series logo"></div>
         <div class="number">02 / COLLECTION</div>
         <h2>Better Call Saul</h2>
         <p class="description">Season 1 scenepacks and Twixtors for your next edit.</p>
