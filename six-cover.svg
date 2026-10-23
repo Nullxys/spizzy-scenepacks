@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17130e"/><stop offset=".55" stop-color="#76501f"/><stop offset="1" stop-color="#21170f"/></linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f3d18a" stop-opacity=".95"/><stop offset="1" stop-color="#b76a28" stop-opacity=".15"/></linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="850" cy="230" r="150" fill="url(#sun)" opacity=".8"/>
+  <path d="M0 500 L150 390 L240 450 L360 320 L480 465 L620 350 L750 470 L900 370 L1040 470 L1200 390 L1200 720 L0 720Z" fill="#191511" opacity=".88"/>
+  <path d="M0 565 L180 500 L340 560 L510 480 L700 575 L870 500 L1030 560 L1200 510 L1200 720 L0 720Z" fill="#0e0e0d"/>
+  <g fill="#d6ad69" opacity=".55"><rect x="120" y="440" width="8" height="65"/><rect x="145" y="420" width="7" height="85"/><rect x="170" y="450" width="9" height="55"/><rect x="1020" y="430" width="7" height="82"/><rect x="1040" y="410" width="8" height="102"/><rect x="1064" y="445" width="7" height="67"/></g>
+  <text x="72" y="125" fill="#e8c27d" font-family="Arial,sans-serif" font-size="23" letter-spacing="9">SPIZZY COLLECTION / 02</text>
+  <text x="68" y="625" fill="#f7ead2" font-family="Arial,sans-serif" font-size="66" font-weight="700" letter-spacing="2">BETTER CALL SAUL</text>
+  <text x="74" y="668" fill="#c8b08b" font-family="Arial,sans-serif" font-size="19" letter-spacing="6">SCENEPACKS  •  TWIXTORS</text>
+</svg>
