@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0c0d0f">
+  <title>Resource — SPIZZY</title>
+  <style>
+    *{box-sizing:border-box}:root{--bg:#0c0d0f;--panel:#141519;--border:#292a30;--text:#f1f1f1;--muted:#92939b;--accent:#c6ff65}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}a{color:inherit;text-decoration:none}
+    header{min-height:76px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #25262a}.logo{font-size:19px;font-weight:800}.header-label,.eyebrow{font-size:11px;color:#85858d;letter-spacing:2px;text-transform:uppercase}
+    main{max-width:960px;margin:0 auto;padding:42px 28px 100px}.back{display:inline-block;color:var(--muted);font-size:12px;margin-bottom:28px}.detail{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}.preview{border:1px solid var(--border);background:var(--panel);overflow:hidden}.preview img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}.info{padding:8px 0}.info h1{font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-2px;margin:14px 0}.info p{color:var(--muted);font-size:13px;line-height:1.8}.meta{margin:25px 0;border-top:1px solid var(--border)}.meta-row{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--border);font-size:12px}.meta-row span:first-child{color:var(--muted)}.download{display:flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;margin-top:24px;background:var(--accent);color:#101114;font-size:12px;font-weight:700;text-align:center}.download.disabled{background:#25262a;color:#85858d;cursor:not-allowed}.notice{font-size:11px!important;color:#8c8d95!important;margin-top:13px}.related{margin-top:50px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}footer{border-top:1px solid #25262a;padding:25px 6%;color:#777982;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:700px){header{min-height:65px;padding:0 20px}.header-label{font-size:8px}main{padding:30px 20px 70px}.detail{grid-template-columns:1fr;gap:22px}footer{padding:22px 20px;flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <header><a class="logo" href="index.html">SPIZZY</a><span class="header-label">Scenepacks and Twixtors / 2026</span></header>
+  <main>
+    <a class="back" id="back-link" href="index.html">← Back</a>
+    <section class="detail">
+      <div class="preview"><img id="preview-image" src="MW4-REVEAL-TOUT.jpg" alt="Resource preview"></div>
+      <div class="info">
+        <div class="eyebrow" id="resource-category">Resource / Download</div>
+        <h1 id="resource-title">Loading resource…</h1>
+        <p id="resource-description">Resource information.</p>
+        <div class="meta">
+          <div class="meta-row"><span>Type</span><span id="resource-type">—</span></div>
+          <div class="meta-row"><span>Collection</span><span id="resource-collection">—</span></div>
+          <div class="meta-row"><span>Availability</span><span id="resource-availability">—</span></div>
+        </div>
+        <a id="download-button" class="download disabled" href="#" aria-disabled="true">Download link coming soon</a>
+        <p class="notice" id="download-note">The download link has not been added yet. Once a file is hosted, add its direct URL to the resource settings in this page.</p>
+      </div>
+    </section>
+    <div class="related"><a id="related-link" href="call-of-duty.html">← Return to collection</a></div>
+  </main>
+  <footer><span>© SPIZZY</span><span>Independent scenepack and Twixtor archive</span></footer>
+  <script>
+    // Add the real hosted file URL to downloadUrl for each resource when it is ready.
+    const resources = {
+      "mw4": {
+        title: "Modern Warfare IV",
+        category: "Call of Duty / Modern Warfare IV",
+        description: "The Modern Warfare IV collection page. Choose your resource below once scenepack and Twixtor files have been added.",
+        type: "Collection",
+        collection: "Call of Duty",
+        image: "MW4-REVEAL-TOUT.jpg",
+        back: "call-of-duty.html",
+        downloadUrl: ""
+      },
+      "mw4-scenepack": {
+        title: "Modern Warfare IV Scenepack",
+        category: "Scenepack / Modern Warfare IV",
+        description: "Modern Warfare IV footage for editing. The download button will activate when the hosted file URL is added.",
+        type: "Scenepack",
+        collection: "Call of Duty",
+        image: "MW4-REVEAL-TOUT.jpg",
+        back: "call-of-duty.html",
+        downloadUrl: ""
+      },
+      "mw4-twixtors": {
+        title: "Modern Warfare IV Twixtors",
+        category: "Twixtor / Modern Warfare IV",
+        description: "Twixtor clips for editing. The download button will activate when the hosted file URL is added.",
+        type: "Twixtor",
+        collection: "Call of Duty",
+        image: "MW4-REVEAL-TOUT.jpg",
+        back: "call-of-duty.html",
+        downloadUrl: ""
+      },
+      "bcsaul-s1-scenepack": {
+        title: "Better Call Saul — Season 1",
+        category: "Scenepack / Season 1",
+        description: "Season 1 scenepack. The download button will activate when the hosted file URL is added.",
+        type: "Scenepack",
+        collection: "Better Call Saul",
+        image: "six-cover.svg",
+        back: "six.html",
+        downloadUrl: ""
+      },
+      "bcsaul-s1-twixtors": {
+        title: "Better Call Saul Twixtors",
+        category: "Twixtor / Season 1",
+        description: "Season 1 Twixtor clips for editing. The download button will activate when the hosted file URL is added.",
+        type: "Twixtor",
+        collection: "Better Call Saul",
+        image: "six-cover.svg",
+        back: "six.html",
+        downloadUrl: ""
+      }
+    };
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get("pack") || "mw4";
+    const item = resources[key] || resources["mw4"];
+    document.title = item.title + " — SPIZZY";
+    document.getElementById("resource-category").textContent = item.category;
+    document.getElementById("resource-title").textContent = item.title;
+    document.getElementById("resource-description").textContent = item.description;
+    document.getElementById("resource-type").textContent = item.type;
+    document.getElementById("resource-collection").textContent = item.collection;
+    document.getElementById("preview-image").src = item.image;
+    document.getElementById("back-link").href = item.back;
+    document.getElementById("related-link").href = item.back;
+    document.getElementById("related-link").textContent = "← Return to " + item.collection;
+    const button = document.getElementById("download-button");
+    const availability = document.getElementById("resource-availability");
+    const note = document.getElementById("download-note");
+    if (item.downloadUrl) {
+      button.href = item.downloadUrl;
+      button.target = "_blank";
+      button.rel = "noopener noreferrer";
+      button.classList.remove("disabled");
+      button.removeAttribute("aria-disabled");
+      button.textContent = "Download resource ↗";
+      availability.textContent = "Available";
+      note.textContent = "Use the button above to open the hosted download.";
+    } else if (key === "mw4") {
+      button.href = "download.html?pack=mw4-scenepack";
+      button.classList.remove("disabled");
+      button.removeAttribute("aria-disabled");
+      button.textContent = "View scenepack details ↗";
+      availability.textContent = "Collection page";
+      note.textContent = "You can also view the Modern Warfare IV Twixtors page.";
+      const second = document.createElement("a");
+      second.className = "download";
+      second.href = "download.html?pack=mw4-twixtors";
+      second.textContent = "View Twixtors details ↗";
+      button.insertAdjacentElement("afterend", second);
+    } else {
+      availability.textContent = "Coming soon";
+      button.classList.add("disabled");
+      button.href = "#";
+      button.setAttribute("aria-disabled", "true");
+      button.textContent = "Download link coming soon";
+    }
+  </script>
+</body>
+</html>
