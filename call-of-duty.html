@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,599 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0c0d0f">
   <title>Call of Duty — SPIZZY</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #0c0d0f;
-      --panel: #141519;
-      --border: #292a30;
-      --text: #f1f1f1;
-      --muted: #92939b;
-      --accent: #c6ff65;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    header {
-      height: 76px;
-      padding: 0 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #25262a;
-    }
-
-    .logo {
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    .header-label {
-      font-size: 11px;
-      color: #85858d;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    main {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 48px 28px 100px;
-    }
-
-    .back {
-      color: var(--muted);
-      font-size: 12px;
-      display: inline-block;
-      margin-bottom: 32px;
-      transition: color 0.2s;
-    }
-
-    .back:hover {
-      color: white;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 370px;
-      display: flex;
-      align-items: flex-end;
-      padding: 42px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(
-          90deg,
-          rgba(7, 8, 10, 0.96) 0%,
-          rgba(7, 8, 10, 0.76) 48%,
-          rgba(7, 8, 10, 0.15) 100%
-        ),
-        linear-gradient(0deg, #101114, #22262a);
-      background-size: cover;
-      background-position: center;
-    }
-
-    /* Add your Call of Duty banner image here */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(0deg, rgba(12,13,15,.55), transparent 75%);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 580px;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      color: #a7a8af;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      font-weight: 600;
-      letter-spacing: -3px;
-      line-height: 0.98;
-      margin: 18px 0;
-      text-transform: uppercase;
-    }
-
-    .hero p {
-      color: #b1b2b8;
-      font-size: 13px;
-      line-height: 1.8;
-      max-width: 430px;
-      margin: 0;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      margin-top: 24px;
-      border: 1px solid #484a50;
-      padding: 10px 13px;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 20px;
-      margin: 64px 0 25px;
-    }
-
-    .section-heading h2 {
-      font-size: 27px;
-      font-weight: 500;
-      letter-spacing: -0.8px;
-      margin: 10px 0 0;
-    }
-
-    .section-note {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-bottom: 30px;
-    }
-
-    .filter {
-      border: 1px solid var(--border);
-      background: transparent;
-      color: #a5a6ad;
-      padding: 11px 15px;
-      font: inherit;
-      font-size: 11px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .filter:hover,
-    .filter.active {
-      color: #101114;
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .packs {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 25px 20px;
-    }
-
-    .pack {
-      min-width: 0;
-    }
-
-    .pack[hidden] {
-      display: none;
-    }
-
-    .pack-cover {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 1.35 / 1;
-      background: var(--panel);
-      border: 1px solid var(--border);
-    }
-
-    .pack-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.45s ease;
-    }
-
-    .pack:hover .pack-cover img {
-      transform: scale(1.045);
-    }
-
-    .pack-type {
-      position: absolute;
-      left: 12px;
-      top: 12px;
-      padding: 7px 9px;
-      background: rgba(10, 11, 13, 0.85);
-      color: #e9e9eb;
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .pack-info {
-      padding-top: 16px;
-    }
-
-    .pack-number {
-      color: #777982;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    .pack h3 {
-      font-size: 17px;
-      font-weight: 500;
-      margin: 9px 0;
-    }
-
-    .pack p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .pack-link {
-      display: inline-block;
-      margin-top: 15px;
-      color: #d5d5da;
-      font-size: 11px;
-      transition: color 0.2s;
-    }
-
-    .pack-link:hover {
-      color: var(--accent);
-    }
-
-    .empty {
-      display: none;
-      color: var(--muted);
-      font-size: 13px;
-      padding: 30px 0;
-    }
-
-    .archive-note {
-      margin-top: 85px;
-      padding: 30px 0 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .archive-note h2 {
-      font-size: 24px;
-      font-weight: 500;
-      margin: 12px 0;
-    }
-
-    .archive-note p {
-      max-width: 550px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    footer {
-      border-top: 1px solid #25262a;
-      padding: 25px 6%;
-      color: #777982;
-      font-size: 12px;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    @media (max-width: 800px) {
-      .packs {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .hero {
-        min-height: 330px;
-        padding: 30px;
-      }
-    }
-
-    @media (max-width: 520px) {
-      header {
-        height: 65px;
-        padding: 0 20px;
-      }
-
-      .header-label {
-        font-size: 8px;
-        letter-spacing: 1px;
-      }
-
-      main {
-        padding: 32px 20px 70px;
-      }
-
-      .hero {
-        min-height: 330px;
-        padding: 24px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .packs {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .pack-cover {
-        aspect-ratio: 1.5 / 1;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      footer {
-        padding: 22px 20px;
-        flex-wrap: wrap;
-      }
-    }
+    *{box-sizing:border-box} :root{--bg:#0c0d0f;--panel:#141519;--border:#292a30;--text:#f1f1f1;--muted:#92939b;--accent:#c6ff65}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif} a{color:inherit;text-decoration:none}
+    header{min-height:76px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #25262a}
+    .logo{font-size:19px;font-weight:800;letter-spacing:-.5px}.header-label,.eyebrow{font-size:11px;color:#85858d;letter-spacing:2px;text-transform:uppercase}
+    main{max-width:1160px;margin:0 auto;padding:42px 28px 100px}.back{display:inline-block;color:var(--muted);font-size:12px;margin-bottom:28px}.back:hover{color:white}
+    .hero{position:relative;min-height:340px;display:flex;align-items:flex-end;padding:38px;overflow:hidden;border:1px solid var(--border);background:linear-gradient(90deg,rgba(7,8,10,.96),rgba(7,8,10,.45)),url('MW4-REVEAL-TOUT.jpg') center/cover}
+    .hero h1{font-size:clamp(42px,7vw,76px);font-weight:600;letter-spacing:-3px;line-height:.98;margin:16px 0;text-transform:uppercase}
+    .hero p{color:#c2c2c8;font-size:13px;line-height:1.8;max-width:430px;margin:0}.hero-content{max-width:580px}
+    .section-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:60px 0 24px}.section-heading h2{font-size:27px;font-weight:500;letter-spacing:-.8px;margin:10px 0 0}.section-note{font-size:11px;color:var(--muted)}
+    .games{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .game{min-width:0;position:relative;border:1px solid var(--border);background:var(--panel);transition:border-color .2s,transform .2s}
+    .game.available:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .game-cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:#191a1e}
+    .game-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+    .game.available:hover img{transform:scale(1.035)}
+    .game-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 65%)}
+    .game-info{padding:18px}.game-kicker{font-size:10px;letter-spacing:1.5px;color:#92939b;text-transform:uppercase}
+    .game h3{font-size:21px;font-weight:500;margin:9px 0}.game p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+    .status{display:inline-flex;align-items:center;gap:7px;margin-top:17px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}
+    .status-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}.available .status{color:var(--accent)}
+    .coming{opacity:.48;filter:saturate(.35)}.coming .status{color:#a0a0a6}.coming .status-dot{background:#777}
+    .coming .game-cover img{filter:grayscale(1) brightness(.55)}
+    .game-link{display:block}.archive-note{margin-top:75px;padding-top:28px;border-top:1px solid var(--border)}.archive-note h2{font-size:24px;font-weight:500;margin:12px 0}.archive-note p{max-width:550px;color:var(--muted);font-size:13px;line-height:1.8}
+    footer{border-top:1px solid #25262a;padding:25px 6%;color:#777982;font-size:12px;display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:650px){header{min-height:65px;padding:0 20px}.header-label{font-size:8px;letter-spacing:1px}main{padding:30px 20px 70px}.hero{min-height:300px;padding:24px}.games{grid-template-columns:1fr;gap:16px}.section-heading{align-items:flex-start;flex-direction:column;gap:8px}footer{padding:22px 20px;flex-wrap:wrap}}
   </style>
 </head>
-
 <body>
-  <header>
-    <a class="logo" href="index.html">SPIZZY</a>
-    <span class="header-label">Scenepacks and Twixtors / 2026</span>
-  </header>
-
+  <header><a class="logo" href="index.html">SPIZZY</a><span class="header-label">Scenepacks and Twixtors / 2026</span></header>
   <main>
     <a class="back" href="index.html">← Back to collections</a>
-
     <section class="hero">
-      <div class="hero-content">
-        <div class="eyebrow">Collection / 01</div>
-        <h1>Call of<br>Duty.</h1>
-        <p>
-          A collection of Call of Duty scenepacks and Twixtors
-          for editors. Browse the archive and find the footage
-          you need for your next edit.
-        </p>
-        <span class="hero-tag">Scenepacks / Twixtors</span>
-      </div>
+      <div class="hero-content"><div class="eyebrow">Collection / 01</div><h1>Call of<br>Duty.</h1><p>Browse the Modern Warfare archive. Modern Warfare IV is available; the other titles will be added later.</p></div>
     </section>
-
     <section>
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">The archive</div>
-          <h2>Browse scenepacks.</h2>
-        </div>
-        <span class="section-note" id="pack-count">
-          06 items
-        </span>
+      <div class="section-heading"><div><div class="eyebrow">The archive</div><h2>Modern Warfare titles.</h2></div><span class="section-note">01 AVAILABLE / 03 COMING SOON</span></div>
+      <div class="games">
+        <a class="game available game-link" href="download.html?pack=mw4">
+          <div class="game-cover"><img src="MW4-REVEAL-TOUT.jpg" alt="Modern Warfare IV cover"></div>
+          <div class="game-info"><div class="game-kicker">Modern Warfare / IV</div><h3>Modern Warfare IV</h3><p>Open the collection for available scenepack and Twixtor downloads.</p><span class="status"><span class="status-dot"></span>Available · View collection ↗</span></div>
+        </a>
+        <article class="game coming" aria-disabled="true">
+          <div class="game-cover"><img src="MW4-REVEAL-TOUT.jpg" alt="" aria-hidden="true"></div>
+          <div class="game-info"><div class="game-kicker">Modern Warfare / III</div><h3>Modern Warfare III</h3><p>This collection has not been released yet.</p><span class="status"><span class="status-dot"></span>Coming soon</span></div>
+        </article>
+        <article class="game coming" aria-disabled="true">
+          <div class="game-cover"><img src="MW4-REVEAL-TOUT.jpg" alt="" aria-hidden="true"></div>
+          <div class="game-info"><div class="game-kicker">Modern Warfare / II</div><h3>Modern Warfare II</h3><p>This collection has not been released yet.</p><span class="status"><span class="status-dot"></span>Coming soon</span></div>
+        </article>
+        <article class="game coming" aria-disabled="true">
+          <div class="game-cover"><img src="MW4-REVEAL-TOUT.jpg" alt="" aria-hidden="true"></div>
+          <div class="game-info"><div class="game-kicker">Modern Warfare / I</div><h3>Modern Warfare I</h3><p>This collection has not been released yet.</p><span class="status"><span class="status-dot"></span>Coming soon</span></div>
+        </article>
       </div>
-
-      <div class="filters" aria-label="Filter scenepacks">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="mw">Modern Warfare</button>
-        <button class="filter" data-filter="bo">Black Ops</button>
-        <button class="filter" data-filter="tw">Twixtors</button>
-      </div>
-
-      <div class="packs" id="packs">
-
-        <!-- PACK 01 -->
-        <article class="pack" data-category="mw">
-          <a href="YOUR_SCENEPACK_LINK_HERE" target="_blank"
-             rel="noopener noreferrer" aria-label="Open Modern Warfare scenepack">
-            <div class="pack-cover">
-              <img src="images/cod-mw.jpg"
-                   alt="Modern Warfare scenepack"
-                   loading="lazy">
-              <span class="pack-type">Scenepack</span>
-            </div>
-          </a>
-          <div class="pack-info">
-            <div class="pack-number">01 / MODERN WARFARE</div>
-            <h3>Modern Warfare</h3>
-            <p>Call of Duty footage for your next edit.</p>
-            <a class="pack-link" href="YOUR_SCENEPACK_LINK_HERE"
-               target="_blank" rel="noopener noreferrer">
-              View scenepack ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- PACK 02 -->
-        <article class="pack" data-category="mw">
-          <a href="YOUR_SCENEPACK_LINK_HERE" target="_blank"
-             rel="noopener noreferrer" aria-label="Open Ghost scenepack">
-            <div class="pack-cover">
-              <img src="images/cod-ghost.jpg"
-                   alt="Ghost scenepack"
-                   loading="lazy">
-              <span class="pack-type">Scenepack</span>
-            </div>
-          </a>
-          <div class="pack-info">
-            <div class="pack-number">02 / CHARACTER</div>
-            <h3>Ghost</h3>
-            <p>Character-focused footage featuring Ghost.</p>
-            <a class="pack-link" href="YOUR_SCENEPACK_LINK_HERE"
-               target="_blank" rel="noopener noreferrer">
-              View scenepack ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- PACK 03 -->
-        <article class="pack" data-category="bo">
-          <a href="YOUR_SCENEPACK_LINK_HERE" target="_blank"
-             rel="noopener noreferrer" aria-label="Open Black Ops scenepack">
-            <div class="pack-cover">
-              <img src="images/cod-black-ops.jpg"
-                   alt="Black Ops scenepack"
-                   loading="lazy">
-              <span class="pack-type">Scenepack</span>
-            </div>
-          </a>
-          <div class="pack-info">
-            <div class="pack-number">03 / BLACK OPS</div>
-            <h3>Black Ops</h3>
-            <p>Black Ops footage ready for editing.</p>
-            <a class="pack-link" href="YOUR_SCENEPACK_LINK_HERE"
-               target="_blank" rel="noopener noreferrer">
-              View scenepack ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- PACK 04 -->
-        <article class="pack" data-category="tw">
-          <a href="YOUR_TWIXTOR_LINK_HERE" target="_blank"
-             rel="noopener noreferrer" aria-label="Open Call of Duty Twixtors">
-            <div class="pack-cover">
-              <img src="images/cod-twixtor-01.jpg"
-                   alt="Call of Duty Twixtor footage"
-                   loading="lazy">
-              <span class="pack-type">Twixtor</span>
-            </div>
-          </a>
-          <div class="pack-info">
-            <div class="pack-number">04 / TWIXTOR</div>
-            <h3>Call of Duty Twixtors #01</h3>
-            <p>Clips prepared for velocity and slow-motion edits.</p>
-            <a class="pack-link" href="YOUR_TWIXTOR_LINK_HERE"
-               target="_blank" rel="noopener noreferrer">
-              View Twixtors ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- PACK 05 -->
-        <article class="pack" data-category="tw">
-          <a href="YOUR_TWIXTOR_LINK_HERE" target="_blank"
-             rel="noopener noreferrer" aria-label="Open Ghost Twixtors">
-            <div class="pack-cover">
-              <img src="images/cod-twixtor-02.jpg"
-                   alt="Ghost Twixtor footage"
-                   loading="lazy">
-              <span class="pack-type">Twixtor</span>
-            </div>
-          </a>
-          <div class="pack-info">
-            <div class="pack-number">05 / TWIXTOR</div>
-            <h3>Ghost Twixtors</h3>
-            <p>Character clips for cinematic edits.</p>
-            <a class="pack-link" href="YOUR_TWIXTOR_LINK_HERE"
-               target="_blank" rel="noopener noreferrer">
-              View Twixtors ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- PACK 06 -->
-        <article class="pack" data-category="mw">
-          <a href="YOUR_SCENEPACK_LINK_HERE" target="_blank"
-             rel="noopener noreferrer" aria-label="Open campaign scenepack">
-            <div class="pack-cover">
-              <img src="images/cod-campaign.jpg"
-                   alt="Call of Duty campaign footage"
-                   loading="lazy">
-              <span class="pack-type">Scenepack</span>
-            </div>
-          </a>
-          <div class="pack-info">
-            <div class="pack-number">06 / CAMPAIGN</div>
-            <h3>Campaign Scenes</h3>
-            <p>Cinematic campaign footage and cutscenes.</p>
-            <a class="pack-link" href="YOUR_SCENEPACK_LINK_HERE"
-               target="_blank" rel="noopener noreferrer">
-              View scenepack ↗
-            </a>
-          </div>
-        </article>
-
-      </div>
-
-      <p class="empty" id="empty-message">
-        No items in this category yet.
-      </p>
     </section>
-
-    <section class="archive-note">
-      <div class="eyebrow">About this collection</div>
-      <h2>Made for editors.</h2>
-      <p>
-        SPIZZY is an independent scenepack and Twixtor archive
-        designed to make finding footage easier. More packs
-        and categories can be added as the collection grows.
-      </p>
-    </section>
+    <section class="archive-note"><div class="eyebrow">About this collection</div><h2>Made for editors.</h2><p>More Modern Warfare scenepacks and Twixtors can be added as the archive grows.</p></section>
   </main>
-
-  <footer>
-    <span>© SPIZZY</span>
-    <span>Independent scenepack and Twixtor archive</span>
-  </footer>
-
-  <script>
-    const filters = document.querySelectorAll(".filter");
-    const packs = document.querySelectorAll(".pack");
-    const count = document.getElementById("pack-count");
-    const emptyMessage = document.getElementById("empty-message");
-
-    function filterPacks(category) {
-      let visible = 0;
-
-      packs.forEach((pack) => {
-        const matches =
-          category === "all" ||
-          pack.dataset.category === category;
-
-        pack.hidden = !matches;
-
-        if (matches) visible++;
-      });
-
-      count.textContent =
-        String(visible).padStart(2, "0") +
-        (visible === 1 ? " item" : " items");
-
-      emptyMessage.style.display =
-        visible === 0 ? "block" : "none";
-    }
-
-    filters.forEach((button) => {
-      button.addEventListener("click", () => {
-        filters.forEach((filter) => {
-          filter.classList.remove("active");
-        });
-
-        button.classList.add("active");
-        filterPacks(button.dataset.filter);
-      });
-    });
-
-    filterPacks("all");
-  </script>
+  <footer><span>© SPIZZY</span><span>Independent scenepack and Twixtor archive</span></footer>
 </body>
 </html>
