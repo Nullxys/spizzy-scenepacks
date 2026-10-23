@@ -15,7 +15,17 @@
   <header><a class="logo" href="index.html">SPIZZY</a><span class="header-label">Scenepacks and Twixtors / 2026</span></header>
   <main>
     <a class="back" id="back-link" href="index.html"> Back</a>
-    <section class="detail">
+    <section class="character-select" id="character-select">
+      <div class="eyebrow">Modern Warfare IV / Characters</div>
+      <h1>Choose a character.</h1>
+      <p class="character-intro">Browse the available character collections. Select a character to open their scenepack and Twixtor resource page.</p>
+      <div class="characters">
+        <a class="character" href="download.html?pack=mw4-price"><small>Character / 01</small><h2>Captain Price</h2><p>Scenepacks and Twixtors</p></a>
+        <a class="character" href="download.html?pack=mw4-ghost"><small>Character / 02</small><h2>Ghost</h2><p>Scenepacks and Twixtors</p></a>
+        <a class="character" href="download.html?pack=mw4-dunn"><small>Character / 03</small><h2>Cpl. Dunn</h2><p>Scenepacks and Twixtors</p></a>
+      </div>
+    </section>
+    <section class="detail" id="resource-detail">
       <div class="preview"><img id="preview-image" src="MW4-REVEAL-TOUT.jpg" alt="Resource preview"></div>
       <div class="info">
         <div class="eyebrow" id="resource-category">Resource / Download</div>
@@ -90,6 +100,11 @@
     const params = new URLSearchParams(window.location.search);
     const key = params.get("pack") || "mw4";
     const item = resources[key] || resources["mw4"];
+    if (key === "mw4") {
+      document.getElementById("character-select").style.display = "block";
+      document.getElementById("resource-detail").style.display = "none";
+      document.querySelector(".related").style.display = "none";
+    }
     document.title = item.title + " — SPIZZY";
     document.getElementById("resource-category").textContent = item.category;
     document.getElementById("resource-title").textContent = item.title;
