@@ -44,9 +44,11 @@
           <div class="meta-row"><span>Type</span><span id="resource-type">—</span></div>
           <div class="meta-row"><span>Collection</span><span id="resource-collection">—</span></div>
           <div class="meta-row"><span>Availability</span><span id="resource-availability">—</span></div>
+          <div class="meta-row" id="resolution-row" style="display:none"><span>Resolution</span><span>3840 x 1634</span></div>
+          <div class="meta-row" id="framerate-row" style="display:none"><span>Framerate</span><span>60 FPS</span></div>
         </div>
         <a id="download-button" class="download disabled" href="#" aria-disabled="true">Download link coming soon</a>
-        <div class="price-options" id="price-options"><a class="price-option" href="download.html?pack=mw4-price-twixtor">Twixtor</a><a class="price-option" href="download.html?pack=mw4-price-scenepack">Scenepack</a></div>
+        <div class="price-options" id="price-options"><a class="price-option" href="download.html?pack=mw4-price-twixtor">Twixtor</a><a class="price-option" href="download.html?pack=mw4-price-scenepack"><span style="color:var(--accent);margin-right:8px">✓</span>Scenepack <span style="color:var(--accent);margin-left:8px;font-size:10px">AVAILABLE</span></a></div>
         <p class="notice" id="download-note">The download link has not been added yet. Once a file is hosted, add its direct URL to the resource settings in this page.</p>
       </div>
     </section>
@@ -94,7 +96,7 @@
         collection: "Captain Price",
         image: "PRICE.avif",
         back: "download.html?pack=mw4-price",
-        downloadUrl: ""
+        downloadUrl: "https://buzzheavier.com/worxov5mo3ua"
       },
       "mw4-ghost": {
         title: "Ghost",
@@ -178,6 +180,10 @@
     const button = document.getElementById("download-button");
     const availability = document.getElementById("resource-availability");
     const note = document.getElementById("download-note");
+    if (key === "mw4-price-scenepack") {
+      document.getElementById("resolution-row").style.display = "flex";
+      document.getElementById("framerate-row").style.display = "flex";
+    }
     if (key === "mw4-price") {
       document.getElementById("price-options").style.display = "grid";
       document.getElementById("download-button").style.display = "none";
