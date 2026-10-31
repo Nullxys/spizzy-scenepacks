@@ -199,6 +199,8 @@
       button.textContent = "Download resource ";
       availability.textContent = "Available";
       note.textContent = "Use the button above to open the hosted download.";
+    } else if (key === "mw4-price") {
+      // The collection page has its own resource choices; do not show the generic coming-soon state.
     } else if (key === "mw4") {
       button.href = "download.html?pack=mw4-scenepack";
       button.classList.remove("disabled");
