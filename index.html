@@ -20,7 +20,7 @@
 .cover { position:relative; overflow:hidden; aspect-ratio:1.65/1; background:#191a1e; border:1px solid var(--border); border-radius:4px; }
 .cover img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
 .bcs-cover { background:radial-gradient(ellipse at center,#342d20,#121212 75%); }
-.bcs-cover img { object-fit:contain; padding:35px; }
+.bcs-cover img { object-fit:cover; padding:0; }
 .collection.coming { opacity:.48; filter:saturate(.35); }
 .collection.coming .cover img { filter:grayscale(1) brightness(.55); }
 .cover:after { content:""; position:absolute; inset:35% 0 0; background:linear-gradient(0deg,rgba(0,0,0,.55),transparent); pointer-events:none; }
@@ -52,13 +52,12 @@
         <p class="description">Modern Warfare IV is available now. More titles coming soon.</p>
         <span class="arrow">Coming soon</span>
       </a>
-      <a class="collection coming" href="six.html">
-        <div class="cover bcs-cover"><img src="BCS.jpg" alt="Better Call Saul series logo"></div>
+      <div class="collection coming" aria-label="Better Call Saul collection, coming soon">
+        <div class="cover bcs-cover"><img src="BCS.jpg" alt="Better Call Saul collection cover"></div>
         <div class="number">02 / COLLECTION</div>
         <h2>Better Call Saul</h2>
-        <p class="description">This collection has not been released yet.</p>
-        <span class="arrow">Explore this collection </span>
-      </a>
+        <span class="arrow">Coming soon</span>
+      </div>
     </section>
     <section class="featured">
       <div class="eyebrow">About the archive</div>
