@@ -211,9 +211,13 @@
     const button = document.getElementById("download-button");
     const availability = document.getElementById("resource-availability");
     const note = document.getElementById("download-note");
-    if (key === "mw4-price-scenepack") {
+    if (key === "mw4-price-scenepack" || key === "hunt-lucas-scenepack") {
       document.getElementById("resolution-row").style.display = "flex";
       document.getElementById("framerate-row").style.display = "flex";
+    }
+    if (key === "hunt-lucas-scenepack") {
+      document.querySelector("#resolution-row span:last-child").textContent = "1920 x 816";
+      document.querySelector("#framerate-row span:last-child").textContent = "24 FPS";
     }
     if (key === "hunt-lucas") {
       document.getElementById("price-options").style.display = "grid";
@@ -237,8 +241,8 @@
       button.textContent = "Download resource ";
       availability.textContent = "Available";
       note.textContent = "Use the button above to open the hosted download.";
-    } else if (key === "mw4-price") {
-      // The collection page has its own resource choices; do not show the generic coming-soon state.
+    } else if (key === "mw4-price" || key === "hunt-lucas") {
+      // Collection pages have their own resource choices; do not show the generic coming-soon state.
     } else if (key === "mw4") {
       button.href = "download.html?pack=mw4-scenepack";
       button.classList.remove("disabled");
