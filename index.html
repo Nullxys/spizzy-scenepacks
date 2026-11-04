@@ -17,6 +17,8 @@
     h1 { font-size:clamp(38px,6vw,65px); font-weight:500; letter-spacing:-2.5px; margin:18px 0 45px; }
 .announcement { margin:0 0 42px; padding:20px 22px; background:#15171a; border:1px solid #34363b; border-left:3px solid var(--accent); border-radius:3px; }
     .announcement-title { color:var(--accent); font-size:11px; font-weight:800; letter-spacing:1.6px; margin:0 0 9px; }
+    .update-announcement { border-left-color:#83cfff; }
+    .update-announcement .announcement-title { color:#83cfff; }
     .announcement p { color:#b5b6bd; font-size:13px; line-height:1.75; margin:0; }
     .collections { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 .collection { display:block; min-width:0; }
@@ -45,6 +47,11 @@
     <span class="header-label">Scenepacks and Twixtors / 2026</span>
   </header>
   <main>
+
+    <aside class="announcement update-announcement" aria-label="Latest update">
+      <div class="announcement-title">UPDATE</div>
+      <p>The Hunt collection has been added to the archive, and Lucas’s scenepack is now available. Visit the collection page to explore the new content.</p>
+    </aside>
 
     <aside class="announcement" aria-label="Important site announcement">
       <div class="announcement-title">IMPORTANT NOTICE</div>
