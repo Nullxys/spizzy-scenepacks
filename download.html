@@ -69,6 +69,26 @@
         back: "hunt.html",
         downloadUrl: ""
       },
+      "hunt-lucas-scenepack": {
+        title: "Lucas — Scenepack",
+        category: "Scenepack / Lucas",
+        description: "Lucas scenepack footage from The Hunt. The download link will be added when the file is ready.",
+        type: "Scenepack",
+        collection: "Lucas",
+        image: "Lucas.jpg",
+        back: "download.html?pack=hunt-lucas",
+        downloadUrl: ""
+      },
+      "hunt-lucas-twixtor": {
+        title: "Lucas — Twixtor",
+        category: "Twixtor / Lucas",
+        description: "Lucas Twixtor clips from The Hunt. The download link will be added when the file is ready.",
+        type: "Twixtor",
+        collection: "Lucas",
+        image: "Lucas.jpg",
+        back: "download.html?pack=hunt-lucas",
+        downloadUrl: ""
+      },
       "mw4": {
         title: "Modern Warfare IV",
         category: "Call of Duty / Modern Warfare IV",
@@ -194,6 +214,13 @@
     if (key === "mw4-price-scenepack") {
       document.getElementById("resolution-row").style.display = "flex";
       document.getElementById("framerate-row").style.display = "flex";
+    }
+    if (key === "hunt-lucas") {
+      document.getElementById("price-options").style.display = "grid";
+      document.getElementById("price-options").innerHTML = '<a class="price-option" href="download.html?pack=hunt-lucas-scenepack">Scenepack</a><a class="price-option" href="download.html?pack=hunt-lucas-twixtor">Twixtor</a>';
+      document.getElementById("download-button").style.display = "none";
+      document.getElementById("download-note").style.display = "none";
+      availability.textContent = "Choose a resource";
     }
     if (key === "mw4-price") {
       document.getElementById("price-options").style.display = "grid";
